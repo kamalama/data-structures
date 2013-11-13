@@ -14,6 +14,7 @@ var makeStack = function(){
   };
 
   instance.size = function(){
+    return 0;
   };
 
   return instance;
