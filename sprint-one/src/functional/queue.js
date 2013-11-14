@@ -9,10 +9,12 @@ var makeQueue = function(){
 
   instance.enqueue = function(value){
     size++;
+    storage[size-1] = value;
   };
 
   instance.dequeue = function(){
     (size > 0) && size--;
+    return storage[0];
   };
 
   instance.size = function(){
