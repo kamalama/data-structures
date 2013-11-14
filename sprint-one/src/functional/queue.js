@@ -19,7 +19,6 @@ var makeQueue = function(){
       var tempVal = {
       "0": storage[dequeueCount-1]
       };
-      console.log(storage[dequeueCount-1]);
       delete storage[dequeueCount-1];
       return tempVal[0];
     }
