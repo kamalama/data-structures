@@ -1,17 +1,14 @@
 var makeStack = function() {
-  var instance = {};
+  var instance = Object.create(stackMethods);
 
   // Use an object with numeric keys to store values
   instance.storage = {};
   instance.len = 0; // Hint: set an initial value here
 
-  $.extend(instance, stackMethods);
   // Implement the methods below
   return instance;
 
 };
-
-
 
 var stackMethods = {};
 
@@ -27,8 +24,4 @@ var stackMethods = {};
 
   stackMethods.size = function(){
     return this.len;
-
-
-};
-
-var stackMethods = {};
+  };
