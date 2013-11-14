@@ -1,10 +1,9 @@
 var makeQueue = function(){
-  // Hey! Copy your code from src/functional/queue.js and paste it here
-  var instance = {};
+  // Hey! Copy your code from src/functional-shared/queue.js and paste it here
+  var instance = Object.create(queueMethods);
   instance.head = 0;
   instance.dequeueCount = 0;
   instance.storage = {};
-  $.extend(instance, queueMethods);
 
   // Implement the methods below
 
