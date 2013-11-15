@@ -12,20 +12,16 @@ describe("tree", function() {
   });
 
 // Add more tests here to test the functionality of tree.
-  // it("method addChild should take a value", function() {
-  //   var tree2 = "test";
-  //   tree.addChild(tree2);
-  //   expect(tree.addChild()).toHaveBeenCalledWith(tree2);
-  // });
 
   it("should add that node as a child of the tree using method addChild", function() {
     var tree2 = "tree2";
+    var tree3 = "tree3";
     tree.addChild(tree2);
+    tree.addChild(tree3);
     expect(tree.children).toContain("tree2");
-
+    expect(tree.children).toContain("tree3");
   });
 });
-
 
 
 
