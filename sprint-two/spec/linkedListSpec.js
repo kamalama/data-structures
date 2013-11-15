@@ -52,10 +52,16 @@ describe("linkedList", function() {
     expect(linkedList.head).toEqual(testNode2);
   });
 
-  // it("method 'contains' should return true if list contains node", function() {
-  //   var data = 1;
-  //   var testNode = makeNode(data);
-  //   expect(linkedList.contains(testNode).toEqual(true));
-  // });
+  it("method 'contains' should return true if list contains node", function() {
+    var data = "data";
+    var testNode = makeNode(data);
+    linkedList.addToTail(testNode);
+    var data2 = "data2";
+    var testNode2 = makeNode(data2);
+    var testNode3 = "data3";
+    linkedList.addToTail(testNode2);
+    expect(linkedList.contains(testNode)).toBeTruthy();
+    expect(linkedList.contains(testNode3)).toBeFalsy();
+  });
 
 });

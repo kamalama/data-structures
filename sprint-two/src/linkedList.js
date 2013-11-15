@@ -24,14 +24,13 @@ var makeLinkedList = function(){
   };
 
   list.contains = function(node){
-
+    var status = false;
     for (var i in list) {
-      if (i !== undefined && node === i) {
-        return true;
+      if (i !== undefined && node === list[i] && status === false) {
+        status = true;
       }
-
-      return false;
     }
+    return status;
   };
 
   return list;
