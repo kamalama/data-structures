@@ -18,7 +18,33 @@ describe("linkedList", function() {
 
   // add more tests here to test the functionality of linkedList
 
-  it("should have a head property, a makeLinkedList instance", function() {
-    expect(makeLinkedList.head).toEqual(jasmine.any(Function));
+  it("method 'addToTail' should take a value and add it to the end of the list", function() {
+    var data = {};
+    var testNode = makeNode(data);
+    linkedList.addToTail(testNode);
+    expect(linkedList.tail).toEqual(testNode);
+
+    var data2 = {};
+    var testNode2 = makeNode(data2);
+    linkedList.addToTail(testNode2);
+    expect(linkedList.tail).toEqual(testNode2);
+    expect(linkedList.head).toEqual(testNode);
   });
+
+  it("should link two nodes using node.next", function() {
+    var data = {};
+    var testNode = makeNode(data);
+    linkedList.addToTail(testNode);
+    var data2 = {};
+    var testNode2 = makeNode(data2);
+    linkedList.addToTail(testNode2);
+    expect(linkedList.head.next).toEqual(linkedList.tail);
+  });
+
+  // it("method 'contains' should return true if list contains node", function() {
+  //   var data = 1;
+  //   var testNode = makeNode(data);
+  //   expect(linkedList.contains(testNode).toEqual(true));
+  // });
+
 });
