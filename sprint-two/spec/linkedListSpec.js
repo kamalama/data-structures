@@ -17,4 +17,8 @@ describe("linkedList", function() {
   });
 
   // add more tests here to test the functionality of linkedList
+
+  it("should have a head property, a makeLinkedList instance", function() {
+    expect(makeLinkedList.head).toEqual(jasmine.any(Function));
+  });
 });
