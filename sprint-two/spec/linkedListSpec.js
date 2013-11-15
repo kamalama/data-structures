@@ -41,6 +41,17 @@ describe("linkedList", function() {
     expect(linkedList.head.next).toEqual(linkedList.tail);
   });
 
+  it("method 'removeHead' should remove the list's head and return its value", function() {
+    var data = {};
+    var testNode = makeNode(data);
+    linkedList.addToTail(testNode);
+    var data2 = {};
+    var testNode2 = makeNode(data2);
+    linkedList.addToTail(testNode2);
+    expect(linkedList.removeHead).toEqual(testNode);
+    expect(linkedList.head).toEqual(testNode2);
+  });
+
   // it("method 'contains' should return true if list contains node", function() {
   //   var data = 1;
   //   var testNode = makeNode(data);
