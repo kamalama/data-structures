@@ -42,13 +42,13 @@ describe("linkedList", function() {
   });
 
   it("method 'removeHead' should remove the list's head and return its value", function() {
-    var data = {};
+    var data = "data";
     var testNode = makeNode(data);
     linkedList.addToTail(testNode);
-    var data2 = {};
+    var data2 = "data2";
     var testNode2 = makeNode(data2);
     linkedList.addToTail(testNode2);
-    expect(linkedList.removeHead).toEqual(testNode);
+    expect(linkedList.removeHead()).toEqual(testNode);
     expect(linkedList.head).toEqual(testNode2);
   });
 
