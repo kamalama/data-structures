@@ -14,11 +14,8 @@ var HashTable = function(){
 
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  console.log(i);
   if (!this._storage.get(i)) {
-    console.log(k, v);
     this._storage.set(i, [[k, v]]);
-    console.log(this._storage.get(i));
   }
   else {
     this._storage.get(i).push([k, v]);
@@ -29,26 +26,24 @@ HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
   var hashNumber = this._storage.get(i);
   if (hashNumber) {
-    for (var j = 0; j<hashNumber.length; j++) {
+    for (var j = 0; j < hashNumber.length; j++) {
       if (hashNumber[j][0] === k) {
         return hashNumber[j][1];
       }
     }
   }
 
-
-
-  // if (this._storage[i]) {
-  //   for (var j = 0; j < this._storage[i].length; j++) {
-  //    if (this._storage[i][j][0] === k) {
-  //     return this._storage[i][j][1];
-  //    }
-  //  }
-  //}
-  //return this._storage.get(i);
 };
 
-HashTable.prototype.remove = function(){
+HashTable.prototype.remove = function(key){
+  var i = getIndexBelowMaxForKey(key, this._limit);
+  var hashNumber = this._storage.get(i);
+
+  for (var j = 0; j < hashNumber.length; j++) {
+    if (hashNumber[j][0] === key) {
+      hashNumber[j].splice(j, 1);
+    }
+  }
 };
 
 // NOTE: For this code to work, you will NEED the code from hashTableHelpers.js
