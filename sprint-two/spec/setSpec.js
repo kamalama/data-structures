@@ -14,11 +14,14 @@ describe("set", function() {
   it("should take any string and add it to the set using .add()", function() {
     var str = "testString";
     var str2 = "anotherString";
+    var str2Fake = "anotherString";
 
     set.add(str);
     set.add(str2);
+    set.add(str2Fake);
     expect(set._storage).toContain("testString");
     expect(set._storage).toContain("anotherString");
+    expect(set._storage.length).toEqual(2);
   });
 
   it("should take any string and return a boolean if it can be found in the set using .contains()", function() {
@@ -32,6 +35,19 @@ describe("set", function() {
     expect(set.contains("testString")).toBeTruthy();
     expect(set.contains("anotherString")).toBeTruthy();
     expect(set.contains("notHere")).toBeFalsy();
+  });
+
+  it("should take any string and remove it from the set, if present, using .remove()", function() {
+    var str = "testString";
+    var str2 = "anotherString";
+
+    set.add(str);
+    set.add(str2);
+    set.remove(str);
+    expect(set._storage).not.toContain("testString");
+
+    set.remove(str2);
+    expect(set._storage).not.toContain("anotherString");
   });
 });
 

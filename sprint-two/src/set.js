@@ -7,7 +7,16 @@ var makeSet = function(){
 var setMethods = {};
 
 setMethods.add = function(value){
-  this._storage.push(value);
+  var status = true;
+  for (var i = 0; i < this._storage.length; i++) {
+    if (value === this._storage[i] && status) {
+      status = false;
+    }
+  }
+
+  if (status) {
+    this._storage.push(value);
+  }
 };
 
 setMethods.contains = function(value){
@@ -20,6 +29,10 @@ setMethods.contains = function(value){
   return false;
 };
 
-setMethods.remove = function(){
-  
+setMethods.remove = function(value){
+  for (var i = 0; i < this._storage.length; i++) {
+    if (value === this._storage[i]) {
+      this._storage.splice(i, 1);
+    }
+  }
 };
