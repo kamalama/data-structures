@@ -1,6 +1,6 @@
-var makeTree = function(){
+var makeTree = function(value){
   var newTree = {};
-  newTree.value = undefined;
+  newTree.value = value;
   newTree.children = undefined;
   newTree.addChild = treeMethods.addChild;
   newTree.contains = treeMethods.contains;
@@ -19,6 +19,20 @@ treeMethods.addChild = function(child){
   }
 };
 
-treeMethods.contains = function(){
-};
+treeMethods.contains = function(input, status){
+  status = status || false;
+  if(this.value === input && status === false) {
+    return true;
+  }
 
+  if (this.children !== undefined) {
+    for(var i = 0; i < this.children.length; i++) {
+      status = this.children[i].contains(input, status);
+      if (status) {
+        return true;
+      }
+    }
+  }
+
+  return status;
+};
