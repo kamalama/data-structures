@@ -10,4 +10,29 @@ describe("set", function() {
     expect(set.contains).toEqual(jasmine.any(Function));
     expect(set.remove).toEqual(jasmine.any(Function));
   });
+
+  it("should take any string and add it to the set using .add()", function() {
+    var str = "testString";
+    var str2 = "anotherString";
+
+    set.add(str);
+    set.add(str2);
+    expect(set._storage).toContain("testString");
+    expect(set._storage).toContain("anotherString");
+  });
 });
+
+
+
+// A set class, in prototypal style, with the following properties:
+
+// An .add() method, takes any string and adds it to the set
+
+// A .contains() method, takes any string and returns a boolean reflecting whether it can be found in the set
+
+// A .remove() method, takes any string and removes it from the set, if present
+
+// Note: Sets should not use up any more space than necessary. Once a value is added to a set, adding it a second 
+//time should not increase the size of the set.
+//
+// Note: Until the extra credit section, your sets should handle only string values.
