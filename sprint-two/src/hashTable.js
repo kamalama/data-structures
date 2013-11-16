@@ -14,11 +14,20 @@ var HashTable = function(){
 
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  if (!this._storage.get(i)) {
+  var bucket = this._storage.get(i);
+
+  if (!bucket) {
     this._storage.set(i, [[k, v]]);
   }
   else {
-    this._storage.get(i).push([k, v]);
+    for (var z = 0; z < bucket.length; z++) {
+      var pair = bucket[i];
+      if (pair[0] === k) {
+        pair[1] = v;
+        return;
+      }
+    }
+    bucket.push([k, v]);
   }
 };
 
@@ -31,6 +40,8 @@ HashTable.prototype.retrieve = function(k){
         return hashNumber[j][1];
       }
     }
+
+    return null;
   }
 
 };
