@@ -20,6 +20,19 @@ describe("set", function() {
     expect(set._storage).toContain("testString");
     expect(set._storage).toContain("anotherString");
   });
+
+  it("should take any string and return a boolean if it can be found in the set using .contains()", function() {
+    var str = "testString";
+    var str2 = "anotherString";
+    var str3 = "notHere";
+
+    set.add(str);
+    set.add(str2);
+
+    expect(set.contains("testString")).toBeTruthy();
+    expect(set.contains("anotherString")).toBeTruthy();
+    expect(set.contains("notHere")).toBeFalsy();
+  });
 });
 
 
