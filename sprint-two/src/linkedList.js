@@ -16,21 +16,24 @@ var makeLinkedList = function(){
   };
 
   list.removeHead = function(){
-    var tempVal = {
-      "0": list.head
-    };
+    var tempVal = list.head;
     list.head = list.head.next;
-    return tempVal[0];
+    return tempVal;
   };
 
-  list.contains = function(node){
-    var status = false;
-    for (var i in list) {
-      if (i !== undefined && node === list[i] && status === false) {
-        status = true;
+  list.contains = function(node, nodeChecking){
+    nodeChecking = nodeChecking || list.head;
+
+    if (nodeChecking === node) {
+      return true;
+    }
+    else {
+      if (nodeChecking === list.tail) {
+        return false;
+      } else {
+        list.contains(node, nodeChecking.next);
       }
     }
-    return status;
   };
 
   return list;
