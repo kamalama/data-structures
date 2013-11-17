@@ -18,17 +18,23 @@ describe("linkedList", function() {
 
   // add more tests here to test the functionality of linkedList
 
-  it("method 'addToTail' should take a value and add it to the end of the list", function() {
-    var data = {};
+  it("method 'addToTail' should take a value and add it to the end of the list, and record the previous node", function() {
+    var data = "data";
     var testNode = makeNode(data);
     linkedList.addToTail(testNode);
     expect(linkedList.tail).toEqual(testNode);
 
-    var data2 = {};
+    var data2 = "data2";
     var testNode2 = makeNode(data2);
     linkedList.addToTail(testNode2);
     expect(linkedList.tail).toEqual(testNode2);
     expect(linkedList.head).toEqual(testNode);
+
+    var data3 = "data3";
+    var testNode3 = makeNode(data3);
+    linkedList.addToTail(testNode3);
+    expect(linkedList.tail.prev).toEqual(testNode2);
+    expect(linkedList.tail.prev.prev).toEqual(testNode);
   });
 
   it("should link two nodes using node.next", function() {
